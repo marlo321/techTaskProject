@@ -1,0 +1,99 @@
+<template>
+
+    <!-- Form Section -->
+    <lightning-card title="Create Service Request" icon-name="standard:service_request">
+        <div class="slds-p-around_medium">
+
+        <lightning-input
+            data-name="customerEmail"
+            type="email"
+            label="Customer Email"
+            value={customerEmail}
+            onchange={handleChange}
+            required>
+        </lightning-input>
+        
+        <lightning-textarea
+            data-name="description"
+            label="Description"
+            value={description}
+            onchange={handleChange}
+            required>
+        </lightning-textarea>
+        
+        <lightning-combobox
+            data-name="priority"
+            label="Priority"
+            value={priority}
+            placeholder="Select Priority"
+            options={priorityOptions}
+            onchange={handleChange}
+            required>
+        </lightning-combobox>
+
+            <!-- Submit Button + Spinner -->
+            <div class="slds-m-top_medium">
+                <lightning-button
+                    variant="brand"
+                    label="Create Service Request"
+                    onclick={handleSubmit}
+                    disabled={isLoading}>
+                </lightning-button>
+
+                <template if:true={isLoading}>
+                    <lightning-spinner
+                        alternative-text="Saving"
+                        size="small"
+                        class="slds-m-left_small">
+                    </lightning-spinner>
+                </template>
+            </div>
+
+            <!-- Success Display -->
+            <template if:true={createdRequestId}>
+                <p class="slds-text-color_success slds-m-top_small">
+                    Created Service Request Id: {createdRequestId}
+                </p>
+            </template>
+
+            <!-- Error Display -->
+            <template if:true={errorMessage}>
+                <p class="slds-text-color_error slds-m-top_small">
+                    {errorMessage}
+                </p>
+            </template>
+
+        </div>
+    </lightning-card>
+
+
+    <!-- Table Section -->
+    <template if:true={recentRequestsData}>
+        <lightning-card
+            title="Recent Service Requests"
+            icon-name="standard:service_request"
+            class="slds-m-top_large">
+
+            <div class="slds-p-around_medium">
+
+                <lightning-datatable
+                    key-field="Id"
+                    data={recentRequestsData}
+                    columns={columns}
+                    hide-checkbox-column>
+                </lightning-datatable>
+
+            </div>
+        </lightning-card>
+    </template>
+
+    <!-- Error Loading Table Section -->
+    <template if:true={wiredRecentRequestsResult.error}>
+        <lightning-card class="slds-m-top_large">
+            <div class="slds-p-around_medium">
+                <p class="slds-text-color_error">Error loading recent Service Requests.</p>
+            </div>
+        </lightning-card>
+    </template>
+
+</template>
