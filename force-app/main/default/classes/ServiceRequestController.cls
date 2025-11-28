@@ -13,11 +13,11 @@ public with sharing class ServiceRequestController {
         label='Resolve Service Requests with Notes'
         description='Resolves Service Requests and stores the provided resolution notes.'
     )
-    public static void resolveRequests(List<ResolveRequestInput> requests) {
-        resolveServiceRequests(requests);
+    public static List<Service_Request__c> resolveRequests(List<ResolveRequestInput> requests) {
+        return resolveServiceRequests(requests);
     }
 
-    public static void resolveServiceRequests(List<ResolveRequestInput> inputs) {
+    public static List<Service_Request__c> resolveServiceRequests(List<ResolveRequestInput> inputs) {
         if (inputs == null || inputs.isEmpty()) {
             throw new AuraHandledException('At least one resolve input is required.');
         }
@@ -41,6 +41,8 @@ public with sharing class ServiceRequestController {
         }
 
         update updates;
+        
+        return updates;
     }
 
 
