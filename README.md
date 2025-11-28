@@ -1,14 +1,37 @@
-# Salesforce DX Project: Next Steps
+# Project Overview
 
-Now that you’ve created a Salesforce DX project, what’s next? Here are some documentation resources to get you started.
+This project implements a full Service Request workflow on the Salesforce platform using Lightning Web Components (LWC), Apex services, SOQL-based data operations, and Agentforce AI Actions. The system allows agents to:
 
-## How Do You Plan to Deploy Your Changes?
+- Create new Service Requests
+- View the five most recent requests
+- Resolve Service Requests with generated resolution notes
+- Optionally use Agentforce AI to auto-generate internal notes and automatically resolve the request
 
-Do you want to deploy a set of changes, or create a self-contained application? Choose a [development model](https://developer.salesforce.com/tools/vscode/en/user-guide/development-models).
+The solution is built to be scalable, testable, and aligned with Salesforce platform best practices.
 
-## Configure Your Salesforce DX Project
+![alt text](https://github.com/marlo321/techTaskProject/blob/main/images/img.png "Service Request Form logo")
 
-The `sfdx-project.json` file contains useful configuration information for your project. See [Salesforce DX Project Configuration](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_ws_config.htm) in the _Salesforce DX Developer Guide_ for details about this file.
+## Lightning Web Component (LWC)
+
+Component Name serviceRequestPanel
+
+Main Features:
+- Form with fields (Customer Email, Description, Priority)
+- List of last 5 Service Requests (wired via Apex)
+- Form validation & error messaging
+
+Highlights
+- Uses data-name="email" | "description" | "priority" for DRY input handling
+- Toasts for success and error feedback
+
+## Apex Service Layer
+
+Main Apex Class ServiceRequestController.cls
+
+Exposed Methods:
+- createServiceRequests(List<CreateRequestInput> inputs) -  create Service Requests by Email, Description and Priority
+- resolveServiceRequests(List<ResolveRequestInput> inputs) - update Resolution Notes field by Service Request Id 
+- getRecentServiceRequests() - return last 5 service request
 
 ## Read All About It
 
