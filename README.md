@@ -13,7 +13,7 @@ The solution is built to be scalable, testable, and aligned with Salesforce plat
 
 ## Lightning Web Component (LWC)
 
-Component Name serviceRequestPanel
+Component Name serviceRequestForm
 
 Main Features:
 - Form with fields (Customer Email, Description, Priority)
@@ -33,9 +33,6 @@ Exposed Methods:
 - resolveServiceRequests(List<ResolveRequestInput> inputs) - update Resolution Notes field by Service Request Id 
 - getRecentServiceRequests() - return last 5 service request
 
-## Read All About It
+## Agentforce Option B
 
-- [Salesforce Extensions Documentation](https://developer.salesforce.com/tools/vscode/)
-- [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
-- [Salesforce DX Developer Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_intro.htm)
-- [Salesforce CLI Command Reference](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference/cli_reference.htm)
+
