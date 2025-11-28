@@ -193,12 +193,12 @@ private class ServiceRequestControllerTest {
         }
         insert srs;
 
-        List<ServiceRequestController.ResolveRequestInput> inputs =
-            new List<ServiceRequestController.ResolveRequestInput>();
+        List<ResolveRequestInput> inputs =
+            new List<ResolveRequestInput>();
 
         for (Service_Request__c sr : srs) {
-            ServiceRequestController.ResolveRequestInput inp =
-                new ServiceRequestController.ResolveRequestInput();
+            ResolveRequestInput inp =
+                new ResolveRequestInput();
             inp.serviceRequestId = sr.Id;
             inp.resolutionNotes = 'Resolved notes for ' + sr.Id;
             inputs.add(inp);
@@ -242,7 +242,7 @@ private class ServiceRequestControllerTest {
         Test.startTest();
         try {
             ServiceRequestController.resolveServiceRequests(
-                new List<ServiceRequestController.ResolveRequestInput>()
+                new List<ResolveRequestInput>()
             );
         } catch (Exception e) {
             exceptionThrown = true;
@@ -255,12 +255,12 @@ private class ServiceRequestControllerTest {
     @IsTest
     static void testResolveServiceRequests_NoValidIds() {
 
-        List<ServiceRequestController.ResolveRequestInput> inputs =
-            new List<ServiceRequestController.ResolveRequestInput>();
+        List<ResolveRequestInput> inputs =
+            new List<ResolveRequestInput>();
 
         for (Integer i = 0; i < 3; i++) {
-            ServiceRequestController.ResolveRequestInput inp =
-                new ServiceRequestController.ResolveRequestInput();
+            ResolveRequestInput inp =
+                new ResolveRequestInput();
             inp.serviceRequestId = null;
             inp.resolutionNotes = 'Will not be used';
             inputs.add(inp);
