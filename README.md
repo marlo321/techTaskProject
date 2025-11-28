@@ -13,7 +13,7 @@ The solution is built to be scalable, testable, and aligned with Salesforce plat
 
 ## Lightning Web Component (LWC)
 
-Component Name serviceRequestForm
+Component Name ```bash serviceRequestForm ```
 
 Main Features:
 - Form with fields (Customer Email, Description, Priority)
@@ -25,7 +25,7 @@ Highlights
 
 ## Apex Service Layer
 
-Main Apex Class ServiceRequestController.cls
+Main Apex Class ``` ServiceRequestController.cls ```
 
 Exposed Methods:
 - createServiceRequests(List<CreateRequestInput> inputs) -  create Service Requests by Email, Description and Priority
